@@ -12,7 +12,7 @@ All the measurments gets into ATMega memory via sensors like thermistor, photore
 Explain Simplier!
 -----------------
 There's some sort of step-by step algorithm:
-Measurment \n
+Measurment <code>\n</code>
 ↓\n
 Converting data into SI\n
 ↓\n
