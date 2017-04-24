@@ -12,17 +12,17 @@ All the measurments gets into ATMega memory via sensors like thermistor, photore
 Explain Simplier!
 -----------------
 There's some sort of step-by step algorithm:
-Measurment
-↓
-Converting data into SI
-↓
-Sending values via Serial Monitor
-↓
-"Scrapping" data from serial monitor with Python script (magic starts here!)
-↓
-Comparing values with special database
-↓
-Managing special UI window powered by TKinter framework
+Measurment \n
+↓\n
+Converting data into SI\n
+↓\n
+Sending values via Serial Monitor\n
+↓\n
+"Scrapping" data from serial monitor with Python script (magic starts here!)\n
+↓\n
+Comparing values with special database\n
+↓\n
+Managing special UI window powered by TKinter framework\n
 
 How to launch?
 Connect Arduino device (sketches coming soon!) with USB cable, open port access via Terminal if you're using Linux, launch an experiment with following command (make sure you have Python 3 installed)
