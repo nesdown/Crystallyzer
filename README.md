@@ -12,6 +12,7 @@ All the measurments gets into ATMega memory via sensors like thermistor, photore
 Explain Simplier!
 -----------------
 There's some sort of step-by step algorithm:  
+
 • Measurment     
    
 • Converting data into SI    
@@ -25,6 +26,7 @@ There's some sort of step-by step algorithm:
 • Managing special UI window powered by TKinter framework      
 
 How to launch?
+--------------
 Connect Arduino device (sketches coming soon!) with USB cable, open port access via Terminal if you're using Linux, launch an experiment with following command (make sure you have Python 3 installed)
 
 <code>~/your-path$ python3 CrytallAnalyzer.py</code>
