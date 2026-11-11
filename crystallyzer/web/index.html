@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Crystallyzer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,600;112..125,800&family=Public+Sans:wght@400;500;600&family=Martian+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app" id="app" data-view="diffraction">
+  <aside class="rail">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M20 3 35 12v16L20 37 5 28V12z"/><path d="M20 3v34M5 12l30 16M35 12 5 28" opacity=".45"/></g><circle cx="20" cy="20" r="3.2" fill="var(--laser)"/></svg>
+      <div><b>Crystallyzer</b><small>optical bench for crystals</small></div>
+    </div>
+    <nav class="views" aria-label="Experiments">
+      <button data-go="diffraction"><span class="glyph g-diff" aria-hidden="true"></span><b>Diffraction</b><small>laser through a lattice</small></button>
+      <button data-go="polarization"><span class="glyph g-pol" aria-hidden="true"></span><b>Polarized light</b><small>is it cubic?</small></button>
+      <button data-go="growth"><span class="glyph g-grow" aria-hidden="true"></span><b>Growth</b><small>a day in the dish</small></button>
+    </nav>
+    <section class="sensors" aria-label="Sensors">
+      <h3>Bench</h3>
+      <dl id="sensors"></dl>
+      <p class="mode" id="mode"></p>
+    </section>
+  </aside>
+
+  <main class="view" id="view-diffraction">
+    <div class="screen-wrap">
+      <div class="screen" id="screen">
+        <img id="pattern" alt="Diffraction pattern on the screen">
+        <canvas id="overlay" aria-hidden="true"></canvas>
+        <div class="scan" aria-hidden="true"></div>
+        <p class="screen-empty" id="screen-empty">Slide in place? Fire the laser.</p>
+      </div>
+      <div class="screen-bar">
+        <button class="fire" id="fire"><span class="dot"></span>Fire the laser</button>
+        <label class="toggle"><input type="checkbox" id="show-overlay" checked> Show what it found</label>
+      </div>
+    </div>
+    <div class="side">
+      <section class="picker" id="slides" aria-label="Slides"></section>
+      <section class="result" id="d-result" aria-live="polite"></section>
+    </div>
+  </main>
+
+  <main class="view" id="view-polarization">
+    <div class="pol-top">
+      <div class="stage-big"><img id="stage-big" alt="Crystal between crossed polarizers"><span id="stage-angle"></span></div>
+      <div class="pol-right">
+        <section class="picker" id="crystals" aria-label="Crystals"></section>
+        <div class="row">
+          <label class="field" for="thickness">Thickness <span><input id="thickness" type="number" min="1" max="5000" step="1"> µm</span></label>
+          <button class="fire" id="turn"><span class="dot"></span>Turn the crystal</button>
+        </div>
+        <section class="result" id="p-result" aria-live="polite"></section>
+      </div>
+    </div>
+    <div class="strip" id="strip" aria-label="One picture every 15°"></div>
+    <div class="pol-charts">
+      <figure class="chart"><figcaption>Light through crossed polarizers, as the stage turns</figcaption><svg id="light-chart" viewBox="0 0 600 170" preserveAspectRatio="none"></svg></figure>
+      <figure class="chart"><figcaption>Michel-Lévy colours, by retardation</figcaption><canvas id="ml" width="900" height="60"></canvas><div class="ml-axis" id="ml-axis"></div></figure>
+    </div>
+  </main>
+
+  <main class="view" id="view-growth">
+    <div class="grow-top">
+      <section class="picker" id="g-crystals" aria-label="Crystal to grow"></section>
+      <div class="row"><button class="fire" id="grow"><span class="dot"></span>Start a growth run</button><span class="hint" id="g-hint"></span></div>
+    </div>
+    <div class="frames" id="g-frames"></div>
+    <figure class="chart wide"><figcaption>Size (√area) and solution temperature</figcaption><svg id="g-chart" viewBox="0 0 900 220" preserveAspectRatio="none"></svg></figure>
+    <section class="result" id="g-result" aria-live="polite"></section>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
